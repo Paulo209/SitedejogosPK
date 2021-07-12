@@ -1,0 +1,43 @@
+* {
+  text-decoration: none;
+}
+canvas{
+    position: absolute;
+    right: 0px;
+    left: 0px;
+    top: 0px;
+    bottom: 0px;
+    margin: auto;
+}
+h1 {
+  padding: auto;
+  margin: auto;
+  font-size: 300%;
+  color: white;
+}
+body {
+	background: linear-gradient(45deg, rgb(128, 128, 206), rgb(187, 120, 187), rgb(187, 124, 124));
+/*	background-size: 300% 300%;
+	animation: colors 15s ease infinite;
+}
+@keyframes colors   
+{
+      0% {
+        background-position: 0% 33%;
+      }
+      20% {
+        background-position: 33% 66%;
+      }
+      40% {
+        background-position: 66% 100%;
+      }
+      60% {
+        background-position: 100% 66%;
+      }
+      80% {
+        background-position: 66% 33%;
+      }
+      100% {
+        background-position: 33% 00%;
+      }*/
+}
