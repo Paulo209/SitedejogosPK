@@ -2,9 +2,16 @@
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
+    <meta name="description" content="site de jogos criado por pk para resgistrar progresso como dev">
+    <meta name="keywords" content="jogospk, PK, games, jogos, online, gratis, divertido, rapadura">
+    <meta name="author" content="PK">
+    <meta name="robot" content="index">
+    <meta name="generator" content="VS Code">
+    <meta name="rating" content="general">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home</title>
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1">
+    <link rel="shortcut icon" href="img/icons8-game-controller-30.png">
+    <title>JogosPK</title>
     <style>
         * {
             margin: 0px;
@@ -12,7 +19,7 @@
             text-decoration: none;
         }
         body {
-            background-color: forestgreen;
+            background-color: silver;
         }
         table {
             margin: auto;
@@ -22,52 +29,324 @@
             border: 2px solid black;
             text-shadow: black 2px 2px 3px;
             background-color: thistle;
+            text-align: center;  
+        }
+        tr {
+            height: 120px;
+        }
+        .h01 {
+            color: white;
+            font-size: 30px; 
+            text-align: center; 
+            text-shadow: blue 0px 0px 5px;
+        }
+        .p01 {
+            color: floralwhite; 
+            font-size: 22px;
+        }
+        .p02 {
+            color: seashell;
+            font-size: 18px;
+        }
+        .t01 {
+            color: chartreuse; 
+            font-size: 20px;
+        }
+        .t02 {
+            color: black;
+            font-size: 16px;
+        }
+        .icon {
+            height: 25px;
+            margin-left: 25px;
+            margin-right: 25px;
+            margin-bottom: 5px;
+        }
+
+        body::-webkit-scrollbar {
+            width: 7px;
+        }
+        body::-webkit-scrollbar-track {
+            background: rgba(0, 0, 0, 0.0);
+        }
+        body::-webkit-scrollbar-thumb {
+            background-color: #a1a1a1;
+            border-radius: 3px;
+            border: #a0a0a1 solid 1px;
+        }
+
+
+        #topo{
+            background-color: #9C9C9D;
+            height: 11vh;
+        }
+        #butoesCabecario {
+            display: flex;
+        }
+        #icons {
+            display: flex;
+        }
+        #icons img:hover {
+            border-bottom: black solid 2px;
+        }
+        #pesquisa {
+           margin-left: auto;
+           display: flex;
+           height: 20px;
+        }
+        #pesquisa .texto {
+            border-radius: 10px 0px 0px 10px;
+            border: black solid 2px;
+            background-color: rgba(0, 0, 0, 0.0);
             text-align: center;
-            
+            color: white;
+            height: 20px;
+            font-size: 15px;
+        }
+        #pesquisa .ok {
+            border-radius: 0px 10px 10px 0px;
+            border: black solid 2px;
+            background-color: black;
+            color: white;
+            width: 50px;
+            margin-right: 10px;
+            text-align: center;
+            height: 24px;
+        }
+        
+
+
+        #corpo {
+            background-color: white;
+            display: flex;
+        }
+        #esquerda {
+            background-color: #a7a8b3;
+            flex: 1;
+            align-items: center;
+            display: flex;
+        }
+        #esquerda div {
+            font-size: 50px;
+            color: white;
+            text-shadow: lime 0px 0px 5px;
+        }
+        #centro {
+            background-color: #9C9C9D;
+            height: 120vh;
+            flex: 7;
+            overflow-y: scroll;
+        }
+        #centro text, p{
+            margin: 0px 10px;
+        }
+        #centro::-webkit-scrollbar {
+            width: 7px;
+        }
+        #centro::-webkit-scrollbar-track {
+            background: #9C9C9D;
+        }
+        #centro table tr td a {
+            color: black;
+        }
+        #centro::-webkit-scrollbar-thumb {
+            background-color: #a1a1a1;
+            border-radius: 3px;
+            border: #a0a0a1 solid 1px;
+        }
+        #direita {
+            background-color: #a7a8b3;
+            flex: 1;
+            align-items: center;
+            display: flex;
+        }
+        #direita div {
+            font-size: 50px;
+            color: white;
+            text-shadow: lime 0px 0px 5px;
+        }
+
+
+        #rodape {
+            background-color: #7a7a7a;
+            height: 250px;
+            display: flex;
+        }
+        .infoRodape {
+            border: lime solid 2px;
+            border-radius: 5px;
+            color: white;
+            text-shadow: lime 0px 0px 5px;
+            /*margin: 50px 0px 50px 150px;*/
+            margin: auto;
+            padding: 10px;
+            width: 130px;
+            height: 150px;
+            text-align: center;
+        }
+        .infoRodape a {
+            color: white;
+            text-shadow: lime 0px 0px 5px;
         }
     </style>
 </head>
 <body>
-    <h1 style="color: black; font-size: 30px; text-align: center; text-shadow: blue 0px 0px 5px;">Site de jogos</h1>
-    <br>
-    <p style="color: floralwhite; font-size: 22px;">Site de jogos com jogos criandos por mim 
-    <text style="color: chartreuse; font-size: 26px;">:)Pk</text>.</p>
-    <p style="color: floralwhite; font-size: 22px;">Eu estou iniciando minha carreira como dev e pencei em fazer um site tipo<br>
-    o falecido click jogos <text style="color: black; font-size: 15px;">PRESS F TO CLICK JOGOS</text> pra poder colocar todos os jogos<br> 
-    que eu criar durante meu aprendizado.</p>
-    <br>
-    <br>
-    <br>
-    <table>
-        <tr style="height: 50px;">
-            <th style="width: 50px;">N</th>
-            <th style="width: 300px;">Nome</th>
-            <th style="width: 250px;">Data de adição</th>
-            <th>Image do site</th>
-            <th>Descrição</th>
-        </tr>
-        <tr>
-            <td>1</td>
-            <td><a href="PeperPixel/index.html">Peper Pixel</a></td>
-            <td><text style="color: lightskyblue;">11/julho/2021</text></td>
-            <td><a href="PeperPixel/index.html"><img style="width: 120px;" title="PeperPixel" src="img/PeperPixel.png"></a></td>
-            <td style="width: 200px;">Um jogo infiniti run 2d onde você e um cubo que tem que
-            pular por cima dos obstaculos e chegar o mais longe posivel</td>
-        </tr>
-        <tr>
-            <td>2</td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-        </tr>
-        <tr>
-            <td>3</td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-        </tr>
-    </table>
+    <!--topo-->
+    <div id="topo">
+        <h1 class="h01">Site de jogos</h1>
+        <div id="butoesCabecario">
+            <div id="icons">
+                <img class="icon" src="img/icons8-home-50.png">
+                <img class="icon" src="img/icons8-icosahedron-50.png">
+                <img class="icon" src="img/icons8-game-controller-30.png">
+            </div>
+            <form id="pesquisa">
+                <input type="text" class="texto">
+                <input type="submit" value="Ok" class="ok">
+            </form>
+        </div>
+    </div>
+
+    <div id="corpo">
+        <!--esquerda-->
+        <div id="esquerda">
+            <div>
+                <text>A</text><br>
+                <text>D</text><br>
+                <text>S</text><br>
+            </div>
+        </div>
+
+        <!--Centro-->
+        <div id="centro">
+            <p class="p02">Site de jogos com jogos criandos por mim 
+            <text class="t01">PK</text>.</p>
+            <p class="p01">Eu estou iniciando minha carreira como dev e pencei em fazer um site tipo
+            o falecido click jogos <text class="t02">PRESS F TO CLICK JOGOS</text> pra poder colocar todos os jogos
+            que eu criar durante meu aprendizado.</p><br><br><br>
+            <table>
+                <tr style="height: 50px;">
+                    <th style="width: 50px;">N</th>
+                    <th style="width: 300px;">Nome</th>
+                    <th style="width: 250px;">Data de adição</th>
+                    <th>Image do site</th>
+                    <th>Descrição</th>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td><a href="PeperPixel/index.html">Peper Pixel</a></td>
+                    <td><text>11/julho/2021</text></td>
+                    <td><a href="PeperPixel/index.html"><img style="width: 120px;" title="PeperPixel" src="img/PeperPixel.png"></a></td>
+                    <td style="width: 200px;">Um jogo infiniti run 2d onde você e um cubo que tem que
+                    pular por cima dos obstaculos e chegar o mais longe posivel</td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>?????</td>
+                    <td>??/??/????</td>
+                    <td><text style="font-size: 100px;">?</text></td>
+                    <td>?????</td>
+                </tr>
+                <tr>
+                    <td>4</td>
+                    <td>?????</td>
+                    <td>??/??/????</td>
+                    <td><text style="font-size: 100px;">?</text></td>
+                    <td>?????</td>
+                </tr>
+                <tr>
+                    <td>5</td>
+                    <td>?????</td>
+                    <td>??/??/????</td>
+                    <td><text style="font-size: 100px;">?</text></td>
+                    <td>?????</td>
+                </tr>
+                <tr>
+                    <td>6</td>
+                    <td>?????</td>
+                    <td>??/??/????</td>
+                    <td><text style="font-size: 100px;">?</text></td>
+                    <td>?????</td>
+                </tr>
+                <tr>
+                    <td>7</td>
+                    <td>?????</td>
+                    <td>??/??/????</td>
+                    <td><text style="font-size: 100px;">?</text></td>
+                    <td>?????</td>
+                </tr>
+                <tr>
+                    <td>8</td>
+                    <td>?????</td>
+                    <td>??/??/????</td>
+                    <td><text style="font-size: 100px;">?</text></td>
+                    <td>?????</td>
+                </tr>
+                <tr>
+                    <td>9</td>
+                    <td>?????</td>
+                    <td>??/??/????</td>
+                    <td><text style="font-size: 100px;">?</text></td>
+                    <td>?????</td>
+                </tr>
+                <tr>
+                    <td>10</td>
+                    <td>?????</td>
+                    <td>??/??/????</td>
+                    <td><text style="font-size: 100px;">?</text></td>
+                    <td>?????</td>
+                </tr>
+                <tr>
+                    <td>11</td>
+                    <td>?????</td>
+                    <td>??/??/????</td>
+                    <td><text style="font-size: 100px;">?</text></td>
+                    <td>?????</td>
+                </tr>
+                <tr>
+                    <td>12</td>
+                    <td>?????</td>
+                    <td>??/??/????</td>
+                    <td><text style="font-size: 100px;">?</text></td>
+                    <td>?????</td>
+                </tr>
+
+            </table>
+        </div>
+
+        <!--direita-->
+        <div id="direita">
+            <div>
+                <text>A</text><br>
+                <text>D</text><br>
+                <text>S</text><br>
+            </div>
+        </div>
+    </div>
+
+    <!--roda pé-->
+    <div id="rodape">
+        <div class="infoRodape">
+            <h4>Redes Sociais</h4>
+            <a href="https://www.youtube.com/channel/UC_JCRKJ1g6zu3PlL6AZvDww">Youtube</a><br>
+            <a href="https://vm.tiktok.com/ZMdsWUoJv/">Tik Tok</a>
+        </div>
+        <div class="infoRodape">
+            <h4>Contato</h4>
+            <a>Telefone</a>
+        </div>
+        <div class="infoRodape">
+            <h4>????</h4>
+            <a>????</a>
+        </div>
+        <div class="infoRodape">
+            <h4>????</h4>
+            <a>????</a>
+        </div>
+        <div class="infoRodape">
+            <h4>????</h4>
+            <a>????</a>
+        </div>
+    </div>
 </body>
 </html>
