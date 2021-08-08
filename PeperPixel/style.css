@@ -14,6 +14,7 @@ h1 {
   margin: auto;
   font-size: 300%;
   color: white;
+  user-select: none;
 }
 body {
 	background: linear-gradient(45deg, rgb(128, 128, 206), rgb(187, 120, 187), rgb(187, 124, 124));

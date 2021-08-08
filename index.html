@@ -9,344 +9,200 @@
     <meta name="generator" content="VS Code">
     <meta name="rating" content="general">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1">
-    <link rel="shortcut icon" href="img/icons8-game-controller-30.png">
+    <link rel="shortcut icon" href="img/icon-pk-2.png">
+    <link rel="stylesheet" href="style.css">
     <title>JogosPK</title>
-    <style>
-        * {
-            margin: 0px;
-            padding: 0px;
-            text-decoration: none;
-        }
-        body {
-            background-color: silver;
-        }
-        table {
-            margin: auto;
-            color: black;
-        } 
-        th, tr, td {
-            border: 2px solid black;
-            text-shadow: black 2px 2px 3px;
-            background-color: thistle;
-            text-align: center;  
-        }
-        tr {
-            height: 120px;
-        }
-        .h01 {
-            color: white;
-            font-size: 30px; 
-            text-align: center; 
-            text-shadow: blue 0px 0px 5px;
-        }
-        .p01 {
-            color: floralwhite; 
-            font-size: 22px;
-        }
-        .p02 {
-            color: seashell;
-            font-size: 18px;
-        }
-        .t01 {
-            color: chartreuse; 
-            font-size: 20px;
-        }
-        .t02 {
-            color: black;
-            font-size: 16px;
-        }
-        .icon {
-            height: 25px;
-            margin-left: 25px;
-            margin-right: 25px;
-            margin-bottom: 5px;
-        }
-
-        body::-webkit-scrollbar {
-            width: 7px;
-        }
-        body::-webkit-scrollbar-track {
-            background: rgba(0, 0, 0, 0.0);
-        }
-        body::-webkit-scrollbar-thumb {
-            background-color: #a1a1a1;
-            border-radius: 3px;
-            border: #a0a0a1 solid 1px;
-        }
-
-
-        #topo{
-            background-color: #9C9C9D;
-            height: 11vh;
-        }
-        #butoesCabecario {
-            display: flex;
-        }
-        #icons {
-            display: flex;
-        }
-        #icons img:hover {
-            border-bottom: black solid 2px;
-        }
-        #pesquisa {
-           margin-left: auto;
-           display: flex;
-           height: 20px;
-        }
-        #pesquisa .texto {
-            border-radius: 10px 0px 0px 10px;
-            border: black solid 2px;
-            background-color: rgba(0, 0, 0, 0.0);
-            text-align: center;
-            color: white;
-            height: 20px;
-            font-size: 15px;
-        }
-        #pesquisa .ok {
-            border-radius: 0px 10px 10px 0px;
-            border: black solid 2px;
-            background-color: black;
-            color: white;
-            width: 50px;
-            margin-right: 10px;
-            text-align: center;
-            height: 24px;
-        }
-        
-
-
-        #corpo {
-            background-color: white;
-            display: flex;
-        }
-        #esquerda {
-            background-color: #a7a8b3;
-            flex: 1;
-            align-items: center;
-            display: flex;
-        }
-        #esquerda div {
-            font-size: 50px;
-            color: white;
-            text-shadow: lime 0px 0px 5px;
-        }
-        #centro {
-            background-color: #9C9C9D;
-            height: 120vh;
-            flex: 7;
-            overflow-y: scroll;
-        }
-        #centro text, p{
-            margin: 0px 10px;
-        }
-        #centro::-webkit-scrollbar {
-            width: 7px;
-        }
-        #centro::-webkit-scrollbar-track {
-            background: #9C9C9D;
-        }
-        #centro table tr td a {
-            color: black;
-        }
-        #centro::-webkit-scrollbar-thumb {
-            background-color: #a1a1a1;
-            border-radius: 3px;
-            border: #a0a0a1 solid 1px;
-        }
-        #direita {
-            background-color: #a7a8b3;
-            flex: 1;
-            align-items: center;
-            display: flex;
-        }
-        #direita div {
-            font-size: 50px;
-            color: white;
-            text-shadow: lime 0px 0px 5px;
-        }
-
-
-        #rodape {
-            background-color: #7a7a7a;
-            height: 250px;
-            display: flex;
-        }
-        .infoRodape {
-            border: lime solid 2px;
-            border-radius: 5px;
-            color: white;
-            text-shadow: lime 0px 0px 5px;
-            /*margin: 50px 0px 50px 150px;*/
-            margin: auto;
-            padding: 10px;
-            width: 130px;
-            height: 150px;
-            text-align: center;
-        }
-        .infoRodape a {
-            color: white;
-            text-shadow: lime 0px 0px 5px;
-        }
-    </style>
 </head>
 <body>
-    <!--topo-->
-    <div id="topo">
-        <h1 class="h01">Site de jogos</h1>
-        <div id="butoesCabecario">
-            <div id="icons">
-                <img class="icon" src="img/icons8-home-50.png">
-                <img class="icon" src="img/icons8-icosahedron-50.png">
-                <img class="icon" src="img/icons8-game-controller-30.png">
-            </div>
-            <form id="pesquisa">
-                <input type="text" class="texto">
-                <input type="submit" value="Ok" class="ok">
-            </form>
-        </div>
+    <button id="btnI" onclick="window.alert('Porfavor clique no titulo da pagina para voltar para versão antiga do site que é compativel com mobile. equanto não adicionamos a nova versão')">i</button>
+    <div id="dadosNav">
+        <iframe src="rpg/dados.html" frameborder="0"></iframe>
+        <button id="btnCloseDds" onclick="document.getElementById('dadosNav').style.display = 'none'">X</button>
     </div>
-
-    <div id="corpo">
-        <!--esquerda-->
-        <div id="esquerda">
+    <div id="container">
+        <!-- header -->
+        <div id="header">
+            <a href="_index.html"><img src="img/PK-Titler.png" alt="Pk Game"></a>
+            <!-- <a href="_index.html"><h1>Nome do Site</h1></a> -->
+            <!-- <img src="img/icons8-game-controller-30.png" alt="Jogos"> -->
+            <form class="search-bar"><input type="src" class="area-src"><input type="submit" value="ok" class="ok-src"></form>
             <div>
-                <text>A</text><br>
-                <text>D</text><br>
-                <text>S</text><br>
+                <button id="btnDados" onclick="document.getElementById('dadosNav').style.display = 'block'">
+                    <img src="img/icons8-icosahedron-50.png" alt="Dados" width="25px">
+                    <!-- Dados -->
+                </button>
+                
             </div>
         </div>
 
-        <!--Centro-->
-        <div id="centro">
-            <p class="p02">Site de jogos com jogos criandos por mim 
-            <text class="t01">PK</text>.</p>
-            <p class="p01">Eu estou iniciando minha carreira como dev e pencei em fazer um site tipo
-            o falecido click jogos <text class="t02">PRESS F TO CLICK JOGOS</text> pra poder colocar todos os jogos
-            que eu criar durante meu aprendizado.</p><br><br><br>
-            <table>
-                <tr style="height: 50px;">
-                    <th style="width: 50px;">N</th>
-                    <th style="width: 300px;">Nome</th>
-                    <th style="width: 250px;">Data de adição</th>
-                    <th>Image do site</th>
-                    <th>Descrição</th>
-                </tr>
-                <tr>
-                    <td>1</td>
-                    <td><a href="PeperPixel/index.html">Peper Pixel</a></td>
-                    <td><text>11/julho/2021</text></td>
-                    <td><a href="PeperPixel/index.html"><img style="width: 120px;" title="PeperPixel" src="img/PeperPixel.png"></a></td>
-                    <td style="width: 200px;">Um jogo infiniti run 2d onde você e um cubo que tem que
-                    pular por cima dos obstaculos e chegar o mais longe posivel</td>
-                </tr>
-                <tr>
-                    <td>2</td>
-                    <td>?????</td>
-                    <td>??/??/????</td>
-                    <td><text style="font-size: 100px;">?</text></td>
-                    <td>?????</td>
-                </tr>
-                <tr>
-                    <td>4</td>
-                    <td>?????</td>
-                    <td>??/??/????</td>
-                    <td><text style="font-size: 100px;">?</text></td>
-                    <td>?????</td>
-                </tr>
-                <tr>
-                    <td>5</td>
-                    <td>?????</td>
-                    <td>??/??/????</td>
-                    <td><text style="font-size: 100px;">?</text></td>
-                    <td>?????</td>
-                </tr>
-                <tr>
-                    <td>6</td>
-                    <td>?????</td>
-                    <td>??/??/????</td>
-                    <td><text style="font-size: 100px;">?</text></td>
-                    <td>?????</td>
-                </tr>
-                <tr>
-                    <td>7</td>
-                    <td>?????</td>
-                    <td>??/??/????</td>
-                    <td><text style="font-size: 100px;">?</text></td>
-                    <td>?????</td>
-                </tr>
-                <tr>
-                    <td>8</td>
-                    <td>?????</td>
-                    <td>??/??/????</td>
-                    <td><text style="font-size: 100px;">?</text></td>
-                    <td>?????</td>
-                </tr>
-                <tr>
-                    <td>9</td>
-                    <td>?????</td>
-                    <td>??/??/????</td>
-                    <td><text style="font-size: 100px;">?</text></td>
-                    <td>?????</td>
-                </tr>
-                <tr>
-                    <td>10</td>
-                    <td>?????</td>
-                    <td>??/??/????</td>
-                    <td><text style="font-size: 100px;">?</text></td>
-                    <td>?????</td>
-                </tr>
-                <tr>
-                    <td>11</td>
-                    <td>?????</td>
-                    <td>??/??/????</td>
-                    <td><text style="font-size: 100px;">?</text></td>
-                    <td>?????</td>
-                </tr>
-                <tr>
-                    <td>12</td>
-                    <td>?????</td>
-                    <td>??/??/????</td>
-                    <td><text style="font-size: 100px;">?</text></td>
-                    <td>?????</td>
-                </tr>
+        <!-- body -->
+        <div id="body">
+            <div id="nav-left">
+                <div id="fill-div">
+                    <h3>Filtros</h3>
 
-            </table>
+                    <input type="radio" name="Filter" id="fill-1">
+                    <label for="fill-1"><text>Mais Baixados</text></label>
+                    <br>
+                    <input type="radio" name="Filter" id="fill-2">
+                    <label for="fill-2"><text>Menos Baixados</text></label>
+                    <br>
+                    <input type="radio" name="Filter" id="fill-3">
+                    <label for="fill-3"><text>Melhor Avaliação</text></label>
+                    <br>
+                    <input type="radio" name="Filter" id="fill-4">
+                    <label for="fill-4"><text>Pior Avaliação</text></label>
+                    <br>
+                    <input type="radio" name="Filter" id="fill-5">
+                    <label for="fill-5"><text>De A a Z</text></label>
+                    <br>
+                    <input type="radio" name="Filter" id="fill-6">
+                    <label for="fill-6"><text>De Z a A</text></label>
+                </div>
+                    <br>
+                <div id="tag-div">
+                    <h3>Tags</h3>
+
+                    <div class="tags-select"></div>
+
+                    <input type="checkbox" name="Tag" id="tag-1">
+                    <label for="tag-1"><text> Tiro </text></label>
+                    <br>
+                    <input type="checkbox" name="Tag" id="tag-2">
+                    <label for="tag-2"><text> Carro </text></label>
+                    <br>
+                    <input type="checkbox" name="Tag" id="tag-3">
+                    <label for="tag-3"><text> Indie </text></label>
+                    <br>
+                    <input type="checkbox" name="Tag" id="tag-4">
+                    <label for="tag-4"><text> Plataforma </text></label>
+                    <br>
+                    <input type="checkbox" name="Tag" id="tag-5">
+                    <label for="tag-5"><text> Infinit Run </text></label>
+                    <br>
+                    <input type="checkbox" name="Tag" id="tag-6">
+                    <label for="tag-6"><text> Web </text></label>
+                    <br>
+                    <input type="checkbox" name="Tag" id="tag-7">
+                    <label for="tag-7"><text> Tag </text></label>
+                    <br>
+                    <input type="checkbox" name="Tag" id="tag-8">
+                    <label for="tag-8"><text> Tag </text></label>
+                    <br>
+                    <input type="radio" name="Tag" id="tag-9">
+                    <label for="tag-9"><text> Tag </text></label>
+                    <br>
+                    <input type="checkbox" name="Tag" id="tag-10">
+                    <label for="tag-10"><text> Tag </text></label>
+                    <br>
+                    <input type="checkbox" name="Tag" id="tag-11">
+                    <label for="tag-11"><text> Tag </text></label>
+                    <br>
+                    <input type="checkbox" name="Tag" id="tag-12">
+                    <label for="tag-12"><text> Tag </text></label>
+                </div>
+                <br>
+
+            </div>
+            <div id="nav-right">
+                
+                <div class="jogo">
+                    <div>
+                        <img src="img/PeperPixel.png" alt="PeperPixel">
+                    </div>
+                    <div>
+                        <h3>PeperPixel</h3>
+                        <div><p>Um Jogo infinit run com o obijetivo de chegar o mais longe posivel e ganhar a manhor pontuação</p></div>
+                    </div>
+                    <div>
+                        <div class="avaliacao">4.7</div>
+                        <div class="tags">Infinit-Run, WEB, Tag, Tag</div>
+                    </div>
+                    <div class="butt">
+                        <a href="PeperPixel/index.html"><img src="img/icons8-game-controller-30.png" alt="icon"></a>
+                    </div>
+                </div>
+
+            </div>
+
+                <div id="ads-01">
+                    <a href="https://www.youtube.com/watch?v=dTC7FnKbkn4" target="_blank">
+                        <img src="img/ads-test.gif" alt="ads gif">
+                    </a>
+                </div>
         </div>
 
-        <!--direita-->
-        <div id="direita">
+        <!-- footer -->
+        <div id="footer">
             <div>
-                <text>A</text><br>
-                <text>D</text><br>
-                <text>S</text><br>
+                <h4>?????????</h4>
+                <a><p>??????????</p></a>
+                <a><p>?????????????</p></a>
+                <a><p>???????????</p></a>
+                <a><p>???????????????</p></a>
+                <a><p>???????????</p></a>
+                <a><p>???????????????</p></a>
+            </div>
+            <div>
+                <h4>?????????</h4>
+                <a><p>????????????</p></a>
+                <a><p>?????????????</p></a>
+                <a><p>???????????????</p></a>
+                <a><p>???????????</p></a>
+                <a><p>??????????????</p></a>
+                <a><p>????????????</p></a>
+            </div>
+            <div>
+                <h4>?????????</h4>
+                <a><p>????????????</p></a>
+                <a><p>??????????????</p></a>
+                <a><p>?????????????</p></a>
+                <a><p>??????????????</p></a>
+                <a><p>?????????????</p></a>
+                <a><p>????????????</p></a>
             </div>
         </div>
+        <p class="final-text">
+            Um DEV é uma pessoa que sabe como desenvolver software. Eles também são chamados de: Programadores, coders, engenheiros de software, UX, 
+            front, back, fullstack, embarcado, mobile e tantos outros. Um DEV é alguém que estuda ou trabalha com desenvolvimento de software.
+        </p>
+        
     </div>
-
-    <!--roda pé-->
-    <div id="rodape">
-        <div class="infoRodape">
-            <h4>Redes Sociais</h4>
-            <a href="https://www.youtube.com/channel/UC_JCRKJ1g6zu3PlL6AZvDww">Youtube</a><br>
-            <a href="https://vm.tiktok.com/ZMdsWUoJv/">Tik Tok</a>
-        </div>
-        <div class="infoRodape">
-            <h4>Contato</h4>
-            <a>Telefone</a>
-        </div>
-        <div class="infoRodape">
-            <h4>????</h4>
-            <a>????</a>
-        </div>
-        <div class="infoRodape">
-            <h4>????</h4>
-            <a>????</a>
-        </div>
-        <div class="infoRodape">
-            <h4>????</h4>
-            <a>????</a>
-        </div>
-    </div>
+    <!-- <script src="script.js"></script> -->
 </body>
 </html>
+<!-- 
+.
+.                     __
+.                    /  \
+.                    \__/
+.                     ||
+.                     ||
+.                     ||
+.                 ||||||||||
+.                |||||PK|||||    
+.               ///        \\\
+.              ///          \\\
+.             ///            \\\
+.            ///    _    _    \\\
+.           ///    |_|  |_|    \\\
+.      _   |||                  |||    _
+.     |_|   \\\     ______      ///   |_|
+.      \\    \\\   |______|    ///    //
+.       \\    |||             |||    //
+.       /_\   |||||||||||||||||||   /_\
+.      // \\  |||             |||  // \\
+.     //   \\ |||     /\      ||| //   \\
+.    //     \\|||    /  \     |||//     \\
+.    ||      \|||\   \  /    /|||/       ||
+.    /\       |||\\   \/    //|||        /\
+.    \/       |||\\\       ///|||        \/
+.             |||\\\\     ////|||
+.             |||\\\\\   /////|||
+.             ||| \\\\\_///// |||
+.            ///   \\\\|////   \\\
+.           ///     |||||||     \\\
+.          |||||||||||||||||||||||||
+.          |||||||||||||||||||||||||   
+.
+ -->

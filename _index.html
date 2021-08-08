@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="site de jogos criado por pk para resgistrar progresso como dev">
+    <meta name="keywords" content="jogospk, PK, games, jogos, online, gratis, divertido, rapadura">
+    <meta name="author" content="PK">
+    <meta name="robot" content="index">
+    <meta name="generator" content="VS Code">
+    <meta name="rating" content="general">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=0.5">
+    <link rel="shortcut icon" href="img/icons8-game-controller-30.png">
+    <title>JogosPK</title>
+    <style>
+        :root {
+            --cor-corpo-fundo: silver;
+            --cor-centro: #9C9C9D;
+            --cor-ads: rgba(0, 0, 0, 0.0);
+            --cor-rodape: #7a7a7a;
+            --cor-texto-branco: white;
+            --cor-texto-preto: black;
+            --cor-texto-verde: lime;
+            --cor-textoneon: rgba(255, 255, 255);
+            --cor-textoneon-azul: blue;
+            --cor-textoneon-verde: lime;
+            --cor-scroll: ;
+            --cor-butao-parte-preto: black;
+            --cor-butao-parte-branca: white;
+            --cor-tabela-fundo: thistle;
+            --cor-tabela-bordar: black; 
+            --cor-tabela-texto-sombra: black;
+        }
+        * {
+            transition: 0.5s;
+            margin: 0px;
+            padding: 0px;
+            text-decoration: none;
+        }
+        body {
+            /*background-color: var(--cor-corpo-fundo);*/
+            background-image: url("img/background.gif");
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-size: cover;
+        }
+        table {
+            color: var(--cor-texto-preto);
+            text-align: center;
+            margin-left: auto;
+            margin-right: auto;
+        } 
+        
+        table tr td a{
+            color: var(--cor-texto-preto);
+        }
+        th, tr, td {
+            border: 2px solid var(--cor-tabela-bordar);
+            text-shadow: var(--cor-tabela-texto-sombra) 2px 2px 3px;
+            background-color: var(--cor-tabela-fundo); 
+        }
+        #jogos .n {
+            width: 50px;
+        }
+        #jogos .nome {
+            width: 250px;
+        }
+        #jogos .dataDeAdicao {
+            width: 250px;
+        }
+        #jogos .imgDoJogo {
+            width: 100px;
+        }
+        #jogos .imgDoJogo {
+            width: 100px;
+        }
+        #jogos .imgDoJogo img {
+            width: 100px;
+        }
+        #jogos .descricao {
+            display: block;
+            overflow-y: scroll;
+            width: 100px;
+        }
+        #jogos .linha {
+            height: 100px;
+        }
+        .h01 {
+            color: var(--cor-textoneon);
+            font-size: 30px; 
+            text-align: center; 
+            text-shadow: var(--cor-textoneon-azul) 0px 0px 7px;
+        }
+        .p01 {
+            color: var(--cor-texto-preto); 
+            font-size: 22px;
+        }
+        .p02 {
+            color: var(--cor-texto-preto);
+            font-size: 18px;
+        }
+        .t01 {
+            color: var(--cor-texto-verde); 
+            font-size: 20px;
+        }
+        .t02 {
+            color: var(--cor-texto-branco);
+            font-size: 16px;
+        }
+        .icon {
+            height: 25px;
+            margin-left: 25px;
+            margin-right: 25px;
+            margin-bottom: 5px;
+        }
+
+        body::-webkit-scrollbar {
+            width: 7px;
+        }
+        body::-webkit-scrollbar-track {
+            background: var(--cor-centro);
+        }
+        body::-webkit-scrollbar-thumb {
+            background-color: var(--cor-scroll);
+            border-radius: 3px;
+        }
+
+
+        #topo{
+            background-color: var(--cor-ads);
+            height: 80px;
+        }
+
+        /*butão tema escuro*/
+
+
+        
+
+
+        #corpo {
+            display: flex;
+        }
+        #esquerda {
+            background-color: var(--cor-ads);
+            flex: 1;
+        }
+        #centro {
+            background-color: var(--cor-centro);
+            height: 120vh;
+            flex: 7;
+            overflow-y: scroll;
+        }
+        #centro text, p{
+            margin: 0px 10px;
+        }
+        #centro::-webkit-scrollbar {
+            width: 7px;
+        }
+        #centro::-webkit-scrollbar-track {
+            background: var(--cor-centro);
+        }
+        #centro::-webkit-scrollbar-thumb {
+            background-color: var(--cor-scroll);
+            border-radius: 3px;
+            border: var(--cor-scroll) solid 1px;
+        }
+        #direita {
+            background-color: var(--cor-ads);
+            flex: 1;
+        }
+
+
+        #rodape {
+            background-color: var(--cor-rodape);
+            height: 250px;
+            display: flex;
+        }
+        .infoRodape {
+            border: var(--cor-textoneon-verde) solid 2px;
+            border-radius: 5px;
+            color: var(--cor-textoneon);
+            text-shadow: var(--cor-textoneon-verde) 0px 0px 7px;
+            /*margin: 50px 0px 50px 150px;*/
+            margin: auto;
+            padding: 10px;
+            width: 130px;
+            height: 150px;
+            text-align: center;
+        }
+        .infoRodape a {
+            color: var(--cor-textoneon);
+            text-shadow: var(--cor-textoneon-verde) 0px 0px 7px;
+        }
+        
+
+        /*Mobile*/
+        @media screen and (max-width: 760px) {
+            #corpo {
+                display: block;
+            }
+            #direita {
+                height: 20vh;
+                border-bottom: black solid 1px;
+            }
+            #esquerda {
+                height: 20vh;
+                border-top: black solid 1px;
+            }
+            #centro {
+                overflow-x: hidden;
+                border-top: black solid 1px;
+                border-bottom: black solid 1px;
+                margin: 0px;
+                padding: 0px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="conteiner">
+        <!--topo-->
+        <div id="topo">
+            <a href="index.html"><h1 class="h01">Site de jogos</h1></a>
+        </div>
+
+        <div id="corpo">
+            <!--esquerda-->
+            <div id="esquerda">
+            </div>
+
+            <!--Centro-->
+            <div id="centro">
+                <p class="p02">Site de jogos com jogos criandos por mim 
+                <text class="t01">PK</text>.</p>
+                <p class="p01">Eu estou iniciando minha carreira como dev e pencei em fazer um site tipo
+                o falecido click jogos <text class="t02">PRESS F TO CLICK JOGOS</text> pra poder colocar todos os jogos
+                que eu criar durante meu aprendizado.</p><br><br><br>
+                <table id="jogos">
+                    <colgroup>
+                        <col class="n">
+                        <col class="nome">
+                        <col class="dataDeAdicao">
+                        <col class="imgDoJogo">
+                        <col class="descricao">
+                    </colgroup>
+                    
+                    <tr class="linhaTitulo">
+                        <th>N</th>
+                        <th>Nome</th>
+                        <th>Data de adição</th>
+                        <th>Image do jogo</th>
+                        <th>Descrição</th>
+                    </tr>
+                    <tr class="linha">
+                        <td>1</td>
+                        <td><a href="PeperPixel/index.html">Peper Pixel</a></td>
+                        <td><text>11/julho/2021</text></td>
+                        <td><a href="PeperPixel/index.html"><img style="width: 120px;" title="PeperPixel" src="img/PeperPixel.png"></a></td>
+                        <td>Um jogo infiniti run 2d onde você e um cubo que tem que
+                        pular por cima dos obstaculos e chegar o mais longe posivel</td>
+                    </tr>
+                    <tr class="linha">
+                        <td>2</td>
+                        <td><a href="rpg/dados.html">RolarDDs</a></td>
+                        <td>08/agosto/2021</td>
+                        <td><a href="rpg/dados.html"><img style="width: 120px;" src="img/roll-icon.png" title="RolarDDs"></a></td>
+                        <td>Role dados de rpg de um d2 a um d100</td>
+                    </tr>
+                    <tr class="linha">
+                        <td>?</td>
+                        <td>?????</td>
+                        <td>??/??/????</td>
+                        <td><text class="semImg">?</text></td>
+                        <td>?????</td>
+                    </tr>
+                    <tr class="linha">
+                        <td>?</td>
+                        <td>?????</td>
+                        <td>??/??/????</td>
+                        <td><text class="semImg">?</text></td>
+                        <td>?????</td>
+                    </tr>
+                    <tr class="linha">
+                        <td>?</td>
+                        <td>?????</td>
+                        <td>??/??/????</td>
+                        <td><text class="semImg">?</text></td>
+                        <td>?????</td>
+                    </tr>
+                    <tr class="linha">
+                        <td>?</td>
+                        <td>?????</td>
+                        <td>??/??/????</td>
+                        <td><text class="semImg">?</text></td>
+                        <td>?????</td>
+                    </tr>
+                    <tr class="linha">
+                        <td>?</td>
+                        <td>?????</td>
+                        <td>??/??/????</td>
+                        <td><text class="semImg">?</text></td>
+                        <td>?????</td>
+                    </tr>
+                    <tr class="linha">
+                        <td>?</td>
+                        <td>?????</td>
+                        <td>??/??/????</td>
+                        <td><text class="semImg">?</text></td>
+                        <td>?????</td>
+                    </tr>
+                    <tr class="linha">
+                        <td>?</td>
+                        <td>?????</td>
+                        <td>??/??/????</td>
+                        <td><text class="semImg">?</text></td>
+                        <td>?????</td>
+                    </tr>
+                    <tr class="linha">
+                        <td>?</td>
+                        <td>?????</td>
+                        <td>??/??/????</td>
+                        <td><text class="semImg">?</text></td>
+                        <td>?????</td>
+                    </tr>
+                    <tr class="linha">
+                        <td>?</td>
+                        <td>?????</td>
+                        <td>??/??/????</td>
+                        <td><text class="semImg">?</text></td>
+                        <td>?????</td>
+                    </tr>
+                    <tr class="linha">
+                        <td>?</td>
+                        <td>?????</td>
+                        <td>??/??/????</td>
+                        <td><text class="semImg">?</text></td>
+                        <td>?????</td>
+                    </tr>
+                    <tr class="linha">
+                        <td>?</td>
+                        <td>?????</td>
+                        <td>??/??/????</td>
+                        <td><text class="semImg">?</text></td>
+                        <td>?????</td>
+                    </tr>
+
+                </table>
+            </div>
+
+            <!--direita-->
+            <div id="direita">
+            </div>
+        </div>
+
+        <!--roda pé-->
+        <div id="rodape">
+            <div class="infoRodape">
+                <h4>Redes Sociais</h4>
+                <a href="https://www.youtube.com/channel/UC_JCRKJ1g6zu3PlL6AZvDww">Youtube</a><br>
+                <a href="https://vm.tiktok.com/ZMdsWUoJv/">Tik Tok</a>
+            </div>
+            <div class="infoRodape">
+                <h4>Contato</h4>
+                <a>Telefone</a>
+            </div>
+            <div class="infoRodape">
+                <h4>????</h4>
+                <a>????</a>
+            </div>
+            <div class="infoRodape">
+                <h4>????</h4>
+                <a>????</a>
+            </div>
+            <div class="infoRodape">
+                <h4>????</h4>
+                <a>????</a>
+            </div>
+        </div>
+    </div>
+    
+</body>
+</html>
+<!-- 
+.
+.                     __
+.                    /  \
+.                    \__/
+.                     ||
+.                     ||
+.                     ||
+.                 ||||||||||
+.                |||||PK|||||    
+.               ///        \\\
+.              ///          \\\
+.             ///            \\\
+.            ///    _    _    \\\
+.           ///    |_|  |_|    \\\
+.      _   |||                  |||    _
+.     |_|   \\\     ______      ///   |_|
+.      \\    \\\   |______|    ///    //
+.       \\    |||             |||    //
+.       /_\   |||||||||||||||||||   /_\
+.      // \\  |||             |||  // \\
+.     //   \\ |||     /\      ||| //   \\
+.    //     \\|||    /  \     |||//     \\
+.    ||      \|||\   \  /    /|||/       ||
+.    /\       |||\\   \/    //|||        /\
+.    \/       |||\\\       ///|||        \/
+.             |||\\\\     ////|||
+.             |||\\\\\   /////|||
+.             ||| \\\\\_///// |||
+.            ///   \\\\|////   \\\
+.           ///     |||||||     \\\
+.          |||||||||||||||||||||||||
+.          |||||||||||||||||||||||||   
+. 
+-->
