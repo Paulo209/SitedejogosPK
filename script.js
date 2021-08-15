@@ -1,18 +1,35 @@
-let btnDados = document.getElementById('btnDADOS')
-let btnCloseDados = document.getElementById('btnCloseDds')
+var user = document.getElementById("User")
+var password = document.getElementById("Psswd")
 
-btnDados.addEventListener('click', () => {
-    console.log("on");
-    document.getElementById('dadosNav').style.display = "block";
-});
+var userS = ""
+var passwordS = ""
 
-btnCloseDados.addEventListener('click', () => {
-    console.log("off");
-    document.getElementById('dadosNav').style.display = "none";
-});
+function Login() {
+    if (user.value == localStorage.getItem("User")) {
+        if(password.value = localStorage.getItem("Password")) {
+            document.getElementById("span").style.display = "none"
+        }
+        else {
+            password.value = "Erro"
+        }
+    }
+    else {
+        user.value = "Erro"
+    }
+}
 
-
-
+function Register() {
+    if(localStorage.getItem("User") == null){
+        localStorage.setItem("User", user.value)
+        localStorage.setItem("Password", password.value)
+        setTimeout(() => {
+            Login();
+        }, 1000);
+    }
+    else{
+        document.getElementById("btnRgtr").innerHTML = "X"
+    }
+}
 
 
 
