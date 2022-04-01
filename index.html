@@ -2,240 +2,583 @@
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
-    <meta name="description" content="site de jogos criado por pk para resgistrar progresso como dev">
-    <meta name="keywords" content="jogospk, PK, games, jogos, online, gratis, divertido, rapadura">
-    <meta name="author" content="PK">
-    <meta name="robot" content="index">
-    <meta name="generator" content="VS Code">
-    <meta name="rating" content="general">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <link rel="shortcut icon" href="img/icon-pk-2.png">
-    <link rel="stylesheet" href="style.css">
-    <title>JogosPK</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ClonaCartão</title>
+    <style>
+        :root{
+            /* Texto */
+            --textoBasico: rgb(255, 255, 255);
+            /* Fundo */
+            --fundoBasico: rgb(51, 51, 51);
+        }
+        *{
+            padding: 0px;
+            margin: 0px;
+            font-style: none;
+            color: var(--textoBasico);
+        }
+        body{
+            background-color: var(--fundoBasico);
+            padding: 10px;
+        }
+
+        input{
+            width: 70px;
+            height: 17px;
+            color: rgb(255, 255, 255);
+            border-radius: 5px;
+            text-align: center;
+            border: rgb(255, 255, 255) solid 1px;
+            background-color: rgb(100, 100, 100);
+        }
+        #resultados{
+            padding: 5px;
+            overflow-y: scroll;
+            font-size: 17px;
+            position: absolute;
+            right: 10px;
+            top: 10px;
+            border: black 1px solid;
+        }
+        #resultados text {
+            color: yellow;
+            text-shadow: yellow 1px 1px 5px;
+        }
+        #resultados p {
+            color: rgb(255, 255, 255);
+            text-shadow: white 1px 1px 5px;
+        }
+
+        button{
+            background-color: rgb(100, 100, 100);
+            border-radius: 5px;
+            border: white solid 1px;
+
+            width: 60px;
+            height: 17px;
+        }
+
+        img{
+            width: 50px;
+
+            transition: 0.5s;
+        }
+        img:hover{
+            width: 600px;
+        }
+
+        #btn{
+            position: absolute;
+            left: 3px;
+            bottom: 3px;
+        }
+    </style>
 </head>
 <body>
-    <button id="btnI" onclick="window.alert('Porfavor clique no titulo da pagina para voltar para versão antiga do site que é compativel com mobile. equanto não adicionamos a nova versão')">i</button>
-    <div id="dadosNav">
-        <iframe src="rpg/dados.html" frameborder="0"></iframe>
-        <button id="btnCloseDds" onclick="document.getElementById('dadosNav').style.display = 'none'">X</button>
+    DEF:<input type="number" min="0" max="51" value="0" id="a1">
+    RD:<input type="number" min="0" max="30" value="0" id="a2">
+    PV:<input type="number" min="0" max="760" value="0" id="a3">
+    ATK:<input type="number" min="0" max="42" value="0" id="a4">
+    CD:<input type="number" min="0" max="40" value="0" id="a5">
+    DANO:<input type="number" min="0" max="108" value="0" id="a6">
+    ----/----   
+    <input type="number" min="1" max="6" value="6" id="b1">
+    <br>
+    <p>Nome: <input type="text"value="Criatura" id="c1"></p>
+    <br>
+    
+    <br><br><br>
+    <img id="img" src="https://i.pinimg.com/564x/9f/b1/d6/9fb1d695e45fcc3170897ebd31f86212.jpg" alt="Tabela">
+    
+
+    <div style="height: 500px; width: 500px; background-color: rgb(25, 25, 30);" id="resultados">
+        <button onclick="calcND();" id="btn">Calcular</button>
     </div>
-    <div id="container">
-        <!-- header -->
-        <div id="header">
-            <a href="_index.html"><img src="img/PK-Titler.png" alt="Pk Game"></a>
-            <!-- <a href="_index.html"><h1>Nome do Site</h1></a> -->
-            <!-- <img src="img/icons8-game-controller-30.png" alt="Jogos"> -->
-            <form class="search-bar"><input type="src" class="area-src"><input type="submit" value="ok" class="ok-src"></form>
-            <div>
-                <button id="btnDados" onclick="document.getElementById('dadosNav').style.display = 'block'">
-                    <img src="img/icons8-icosahedron-50.png" alt="Dados" width="25px">
-                    <!-- Dados -->
-                </button>
-                
-            </div>
-        </div>
-
-        <!-- body -->
-        <div id="body">
-            <div id="nav-left">
-                <div id="fill-div">
-                    <h3>Filtros</h3>
-
-                    <input type="radio" name="Filter" id="fill-1">
-                    <label for="fill-1"><text>Mais Baixados</text></label>
-                    <br>
-                    <input type="radio" name="Filter" id="fill-2">
-                    <label for="fill-2"><text>Menos Baixados</text></label>
-                    <br>
-                    <input type="radio" name="Filter" id="fill-3">
-                    <label for="fill-3"><text>Melhor Avaliação</text></label>
-                    <br>
-                    <input type="radio" name="Filter" id="fill-4">
-                    <label for="fill-4"><text>Pior Avaliação</text></label>
-                    <br>
-                    <input type="radio" name="Filter" id="fill-5">
-                    <label for="fill-5"><text>De A a Z</text></label>
-                    <br>
-                    <input type="radio" name="Filter" id="fill-6">
-                    <label for="fill-6"><text>De Z a A</text></label>
-                </div>
-                    <br>
-                <div id="tag-div">
-                    <h3>Tags</h3>
-
-                    <div class="tags-select"></div>
-
-                    <input type="checkbox" name="Tag" id="tag-1">
-                    <label for="tag-1"><text> Tiro </text></label>
-                    <br>
-                    <input type="checkbox" name="Tag" id="tag-2">
-                    <label for="tag-2"><text> Carro </text></label>
-                    <br>
-                    <input type="checkbox" name="Tag" id="tag-3">
-                    <label for="tag-3"><text> Indie </text></label>
-                    <br>
-                    <input type="checkbox" name="Tag" id="tag-4">
-                    <label for="tag-4"><text> Plataforma </text></label>
-                    <br>
-                    <input type="checkbox" name="Tag" id="tag-5">
-                    <label for="tag-5"><text> Infinit Run </text></label>
-                    <br>
-                    <input type="checkbox" name="Tag" id="tag-6">
-                    <label for="tag-6"><text> Web </text></label>
-                    <br>
-                    <input type="checkbox" name="Tag" id="tag-7">
-                    <label for="tag-7"><text> Mobile </text></label>
-                    <br>
-                    <input type="checkbox" name="Tag" id="tag-8">
-                    <label for="tag-8"><text> Tag </text></label>
-                    <br>
-                    <input type="radio" name="Tag" id="tag-9">
-                    <label for="tag-9"><text> Tag </text></label>
-                    <br>
-                    <input type="checkbox" name="Tag" id="tag-10">
-                    <label for="tag-10"><text> Tag </text></label>
-                    <br>
-                    <input type="checkbox" name="Tag" id="tag-11">
-                    <label for="tag-11"><text> Tag </text></label>
-                    <br>
-                    <input type="checkbox" name="Tag" id="tag-12">
-                    <label for="tag-12"><text> Tag </text></label>
-                </div>
-                <br>
-
-            </div>
-            <div id="nav-right">
-                
-                <div class="jogo">
-                    <div>
-                        <img src="img/PeperPixel.png" alt="PeperPixel">
-                    </div>
-                    <div>
-                        <h3>PeperPixel</h3>
-                        <div><p>Um Jogo infinit run com o obijetivo de chegar
-                             o mais longe posivel e ganhar a manhor pontuação</p></div>
-                    </div>
-                    <div>
-                        <div class="avaliacao">4.4</div>
-                        <div class="tags">Infinit-Run, WEB, Tag, Tag</div>
-                    </div>
-                    <div class="butt">
-                        <a href="PeperPixel/index.html"><img src="img/icons8-game-controller-30.png" alt="icon"></a>
-                    </div>
-                </div>
-
-                <div class="jogo">
-                    <div>
-                        <img src="img/Slash.png" alt="PeperPixel">
-                    </div>
-                    <div>
-                        <h3>Slash</h3>
-                        <div><p>você é um gerreiro que luta com um slime
-                             que morre é volta mais forte chege o mais longe posivel</p></div>
-                    </div>
-                    <div>
-                        <div class="avaliacao">4.7</div>
-                        <div class="tags">Mobile, WEB, Tag, Tag</div>
-                    </div>
-                    <div class="butt">
-                        <a href="Slash/game.html"><img src="img/icons8-game-controller-30.png" alt="icon"></a>
-                    </div>
-                </div>
 
 
-            </div>
 
-                <div id="ads-01">
-                    <a href="https://www.youtube.com/watch?v=dTC7FnKbkn4" target="_blank">
-                        <img src="img/ads-test.gif" alt="ads gif">
-                    </a>
-                </div>
-        </div>
+    <script>
+        var valores = [];
 
-        <!-- footer -->
-        <div id="footer">
-            <div>
-                <h4>?????????</h4>
-                <a><p>??????????</p></a>
-                <a><p>?????????????</p></a>
-                <a><p>???????????</p></a>
-                <a><p>???????????????</p></a>
-                <a><p>???????????</p></a>
-                <a><p>???????????????</p></a>
-            </div>
-            <div>
-                <h4>?????????</h4>
-                <a><p>????????????</p></a>
-                <a><p>?????????????</p></a>
-                <a><p>???????????????</p></a>
-                <a><p>???????????</p></a>
-                <a><p>??????????????</p></a>
-                <a><p>????????????</p></a>
-            </div>
-            <div>
-                <h4>?????????</h4>
-                <a><p>????????????</p></a>
-                <a><p>??????????????</p></a>
-                <a><p>?????????????</p></a>
-                <a><p>??????????????</p></a>
-                <a><p>?????????????</p></a>
-                <a><p>????????????</p></a>
-            </div>
-        </div>
-        <p class="final-text">
-            Um DEV é uma pessoa que sabe como desenvolver software. Eles também são chamados de: Programadores, coders, engenheiros de software, UX, 
-            front, back, fullstack, embarcado, mobile e tantos outros. Um DEV é alguém que estuda ou trabalha com desenvolvimento de software.
-        </p>
+        function calcDef() {
+            let def = parseInt(document.getElementById("a1").value)
+            if (def < 1) {
+                valores.splice(0, 1, 0);
+            } else 
+            if (def < 8) {
+                valores.splice(0, 1, (1/4));
+            } else 
+            if (def >= 8 && def <= 9) {
+                valores.splice(0, 1, (1/3));
+            } else 
+            if (def >= 10 && def <= 11) {
+                valores.splice(0, 1, (1/2));
+            } else 
+            if (def >= 12 && def <= 13) {
+                valores.splice(0, 1, 1);
+            } else 
+            if (def >= 14 && def <= 15) {
+                valores.splice(0, 1, 2);
+            } else 
+            if (def >= 16 && def <= 17) {
+                valores.splice(0, 1, 3);
+            } else 
+            if (def >= 18 && def <= 19) {
+                valores.splice(0, 1, 4);
+            } else 
+            if (def >= 20 && def <= 21) {
+                valores.splice(0, 1, 5);
+            } else 
+            if (def >= 22 && def <= 23) {
+                valores.splice(0, 1, 6);
+            } else 
+            if (def >= 24 && def <= 25) {
+                valores.splice(0, 1, 7);
+            } else 
+            if (def >= 26 && def <= 27) {
+                valores.splice(0, 1, 8);
+            } else 
+            if (def >= 28 && def <= 29) {
+                valores.splice(0, 1, 9);
+            } else 
+            if (def >= 30 && def <= 31) {
+                valores.splice(0, 1, 10);
+            } else 
+            if (def >= 32 && def <= 33) {
+                valores.splice(0, 1, 11);
+            } else 
+            if (def >= 34 && def <= 35) {
+                valores.splice(0, 1, 12);
+            } else 
+            if (def >= 36 && def <= 37) {
+                valores.splice(0, 1, 13);
+            } else 
+            if (def >= 38 && def <= 39) {
+                valores.splice(0, 1, 14);
+            } else 
+            if (def >= 40 && def <= 41) {
+                valores.splice(0, 1, 15);
+            } else 
+            if (def >= 42 && def <= 43) {
+                valores.splice(0, 1, 16);
+            } else 
+            if (def >= 44 && def <= 45) {
+                valores.splice(0, 1, 17);
+            } else 
+            if (def >= 46 && def <= 47) {
+                valores.splice(0, 1, 18);
+            } else 
+            if (def >= 48 && def <= 49) {
+                valores.splice(0, 1, 19);
+            } else 
+            if (def >= 50) {
+                valores.splice(0, 1, 20);
+            }
+        }
+        function calcRd() {
+            let rd = parseInt(document.getElementById("a2").value)
+            if (rd < 1) {
+                valores.splice(1, 1, 0);
+            } else 
+            if (rd > 0 && rd < 4) {
+                valores.splice(1, 1, (1/4));
+            } else 
+            if (rd == 4) {
+                valores.splice(1, 1, (1/3));
+            } else 
+            if (rd == 5) {
+                valores.splice(1, 1, (1/2));
+            } else 
+            if (rd >= 6 && rd <= 7) {
+                valores.splice(1, 1, 1);
+            } else 
+            if (rd == 8) {
+                valores.splice(1, 1, 2);
+            } else 
+            if (rd == 9) {
+                valores.splice(1, 1, 3);
+            } else 
+            if (rd == 10) {
+                valores.splice(1, 1, 4);
+            } else 
+            if (rd >= 11 && rd <= 12) {
+                valores.splice(1, 1, 5);
+            } else 
+            if (rd == 13) {
+                valores.splice(1, 1, 6);
+            } else 
+            if (rd == 14) {
+                valores.splice(1, 1, 7);
+            } else 
+            if (rd == 15) {
+                valores.splice(1, 1, 8);
+            } else 
+            if (rd >= 16 && rd <= 17) {
+                valores.splice(1, 1, 9);
+            } else 
+            if (rd == 18) {
+                valores.splice(1, 1, 10);
+            } else 
+            if (rd == 19) {
+                valores.splice(1, 1, 11);
+            } else 
+            if (rd == 20) {
+                valores.splice(1, 1, 12);
+            } else 
+            if (rd >= 21 && rd <= 22) {
+                valores.splice(1, 1, 13);
+            } else 
+            if (rd == 23) {
+                valores.splice(1, 1, 14);
+            } else 
+            if (rd == 24) {
+                valores.splice(1, 1, 15);
+            } else 
+            if (rd == 25) {
+                valores.splice(1, 1, 16);
+            } else 
+            if (rd >= 26 && rd <= 27) {
+                valores.splice(1, 1, 17);
+            } else 
+            if (rd == 28) {
+                valores.splice(1, 1, 18);
+            } else 
+            if (rd == 29) {
+                valores.splice(1, 1, 19);
+            } else 
+            if (rd >= 30) {
+                valores.splice(1, 1, 20);
+            }
+        };
+        function calcPV() {
+            let pv = parseInt(document.getElementById("a3").value)
+            if (pv <= 0) {
+                valores.splice(2, 1, 0);
+            } else 
+            if (pv > 0 && pv <= 9) {
+                valores.splice(2, 1, (1/4));
+            } else 
+            if (pv >= 10 && pv <= 29) {
+                valores.splice(2, 1, (1/3));
+            } else 
+            if (pv >= 30 && pv <= 59) {
+                valores.splice(2, 1, (1/2));
+            } else 
+            if (pv >= 60 && pv <= 94) {
+                valores.splice(2, 1, 1);
+            } else 
+            if (pv >= 95 && pv <= 129) {
+                valores.splice(2, 1, 2);
+            } else 
+            if (pv >= 130 && pv <= 164) {
+                valores.splice(2, 1, 3);
+            } else 
+            if (pv >= 165 && pv <= 199) {
+                valores.splice(2, 1, 4);
+            } else 
+            if (pv >= 200 && pv <= 234) {
+                valores.splice(2, 1, 5);
+            } else 
+            if (pv >= 235 && pv <= 269) {
+                valores.splice(2, 1, 6);
+            } else 
+            if (pv >= 270 && pv <= 304) {
+                valores.splice(2, 1, 7);
+            } else 
+            if (pv >= 305 && pv <= 339) {
+                valores.splice(2, 1, 8);
+            } else 
+            if (pv >= 340 && pv <= 374) {
+                valores.splice(2, 1, 9);
+            } else 
+            if (pv >= 375 && pv <= 409) {
+                valores.splice(2, 1, 10);
+            } else 
+            if (pv >= 410 && pv <= 444) {
+                valores.splice(2, 1, 11);
+            } else 
+            if (pv >= 445 && pv <= 479) {
+                valores.splice(2, 1, 12);
+            } else 
+            if (pv >= 480 && pv <= 514) {
+                valores.splice(2, 1, 13);
+            } else 
+            if (pv >= 515 && pv <= 549) {
+                valores.splice(2, 1, 14);
+            } else 
+            if (pv >= 550 && pv <= 584) {
+                valores.splice(2, 1, 15);
+            } else 
+            if (pv >= 585 && pv <= 619) {
+                valores.splice(2, 1, 16);
+            } else 
+            if (pv >= 620 && pv <= 654) {
+                valores.splice(2, 1, 17);
+            } else 
+            if (pv >= 655 && pv <= 689) {
+                valores.splice(2, 1, 18);
+            } else 
+            if (pv >= 690 && pv <= 724) {
+                valores.splice(2, 1, 19);
+            } else 
+            if (pv >= 725) {
+                valores.splice(2, 1, 20);
+            }
+        };
+        function calcAtk() {
+            let atk = parseInt(document.getElementById("a4").value)
+            if (atk <= 0) {
+                valores.splice(3, 1, 0);
+            } else 
+            if (atk > 0 && atk < 6) {
+                valores.splice(3, 1, (1/4));
+            } else 
+            if (atk >= 6 && atk <= 7) {
+                valores.splice(3, 1, (1/3));
+            } else 
+            if (atk == 8) {
+                valores.splice(3, 1, (1/2));
+            } else 
+            if (atk >= 9 && atk <= 10) {
+                valores.splice(3, 1, 1);
+            } else 
+            if (atk == 11) {
+                valores.splice(3, 1, 2);
+            } else 
+            if (atk >= 12 && atk <= 13) {
+                valores.splice(3, 1, 3);
+            } else 
+            if (atk == 14) {
+                valores.splice(3, 1, 4);
+            } else 
+            if (atk >= 15 && atk <= 17) {
+                valores.splice(3, 1, 5);
+            } else 
+            if (atk == 18) {
+                valores.splice(3, 1, 6);
+            } else 
+            if (atk >= 19 && atk <= 20) {
+                valores.splice(3, 1, 7);
+            } else 
+            if (atk == 21) {
+                valores.splice(3, 1, 8);
+            } else 
+            if (atk >= 22 && atk <= 24) {
+                valores.splice(3, 1, 9);
+            } else 
+            if (atk == 25) {
+                valores.splice(3, 1, 10);
+            } else 
+            if (atk >= 26 && atk <= 27) {
+                valores.splice(3, 1, 11);
+            } else 
+            if (atk == 28) {
+                valores.splice(3, 1, 12);
+            } else 
+            if (atk >= 29 && atk <= 31) {
+                valores.splice(3, 1, 13);
+            } else 
+            if (atk == 32) {
+                valores.splice(3, 1, 14);
+            } else 
+            if (atk >= 33 && atk <= 34) {
+                valores.splice(3, 1, 15);
+            } else 
+            if (atk == 35) {
+                valores.splice(3, 1, 16);
+            } else 
+            if (atk >= 36 && atk <= 38) {
+                valores.splice(3, 1, 17);
+            } else 
+            if (atk == 39) {
+                valores.splice(3, 1, 18);
+            } else 
+            if (atk >= 40 && atk <= 41) {
+                valores.splice(3, 1, 19);
+            } else 
+            if (atk == 42) {
+                valores.splice(3, 1, 20);
+            }
+        };
+        function calcCd() {
+            let cd = parseInt(document.getElementById("a5").value)
+
+            if (cd <= 0) {
+                valores.splice(4, 1, 0)
+            } else 
+            if (cd > 0 && cd < 8) {
+                valores.splice(4, 1, (1/4))
+            } else 
+            if (cd >= 8 && cd <= 9) {
+                valores.splice(4, 1, (1/3))
+            } else 
+            if (cd == 10) {
+                valores.splice(4, 1, (1/2))
+            } else 
+            if (cd >= 11 && cd <= 12) {
+                valores.splice(4, 1, 1)
+            } else 
+            if (cd == 13) {
+                valores.splice(4, 1, 2)
+            } else 
+            if (cd >= 14 && cd <= 15) {
+                valores.splice(4, 1, 3)
+            } else 
+            if (cd == 16) {
+                valores.splice(4, 1, 4)
+            } else 
+            if (cd >= 17 && cd <= 18) {
+                valores.splice(4, 1, 5)
+            } else 
+            if (cd == 19) {
+                valores.splice(4, 1, 6)
+            } else 
+            if (cd >= 20 && cd <= 21) {
+                valores.splice(4, 1, 7)
+            } else 
+            if (cd == 22) {
+                valores.splice(4, 1, 8)
+            } else 
+            if (cd >= 23 && cd <= 24) {
+                valores.splice(4, 1, 9)
+            } else 
+            if (cd == 25) {
+                valores.splice(4, 1, 10)
+            } else 
+            if (cd >= 26 && cd <= 27) {
+                valores.splice(4, 1, 11)
+            } else 
+            if (cd == 28) {
+                valores.splice(4, 1, 12)
+            } else 
+            if (cd >= 29 && cd <= 30) {
+                valores.splice(4, 1, 13)
+            } else 
+            if (cd == 31) {
+                valores.splice(4, 1, 14)
+            } else 
+            if (cd >= 32 && cd <= 33) {
+                valores.splice(4, 1, 15)
+            } else 
+            if (cd == 34) {
+                valores.splice(4, 1, 16)
+            } else 
+            if (cd >= 35 && cd <= 36) {
+                valores.splice(4, 1, 17)
+            } else 
+            if (cd == 37) {
+                valores.splice(4, 1, 18)
+            } else 
+            if (cd >= 38 && cd <= 39) {
+                valores.splice(4, 1, 19)
+            } else 
+            if (cd == 40) {
+                valores.splice(4, 1, 20)
+            }
+        }
+        function calcDano() {
+            let dano = parseInt(document.getElementById('a6').value)
+            
+            if (dano < 1) {
+                valores.splice(5, 1, 0)
+            } else
+            if (dano > 0 && dano < 5) {
+                valores.splice(5, 1, (1/4))
+            } else
+            if (dano >= 5 && dano <= 8) {
+                valores.splice(5, 1, (1/3))
+            } else
+            if (dano >= 9 && dano <= 12) {
+                valores.splice(5, 1, (1/2))
+            } else
+            if (dano >= 13 && dano <= 17) {
+                valores.splice(5, 1, 1)
+            } else
+            if (dano >= 18 && dano <= 22) {
+                valores.splice(5, 1, 2)
+            } else
+            if (dano >= 23 && dano <= 27) {
+                valores.splice(5, 1, 3)
+            } else
+            if (dano >= 28 && dano <= 32) {
+                valores.splice(5, 1, 4)
+            } else
+            if (dano >= 33 && dano <= 37) {
+                valores.splice(5, 1, 5)
+            } else
+            if (dano >= 38 && dano <= 42) {
+                valores.splice(5, 1, 6)
+            } else
+            if (dano >= 43 && dano <= 47) {
+                valores.splice(5, 1, 7)
+            } else
+            if (dano >= 48 && dano <= 52) {
+                valores.splice(5, 1, 8)
+            } else
+            if (dano >= 53 && dano <= 57) {
+                valores.splice(5, 1, 9)
+            } else
+            if (dano >= 58 && dano <= 62) {
+                valores.splice(5, 1, 10)
+            } else
+            if (dano >= 63 && dano <= 67) {
+                valores.splice(5, 1, 11)
+            } else
+            if (dano >= 68 && dano <= 72) {
+                valores.splice(5, 1, 12)
+            } else
+            if (dano >= 73 && dano <= 77) {
+                valores.splice(5, 1, 13)
+            } else
+            if (dano >= 78 && dano <= 82) {
+                valores.splice(5, 1, 14)
+            } else
+            if (dano >= 83 && dano <= 87) {
+                valores.splice(5, 1, 15)
+            } else
+            if (dano >= 88 && dano <= 92) {
+                valores.splice(5, 1, 16)
+            } else
+            if (dano >= 93 && dano <= 97) {
+                valores.splice(5, 1, 17)
+            } else
+            if (dano >= 98 && dano <= 102) {
+                valores.splice(5, 1, 18)
+            } else
+            if (dano >= 103 && dano <= 107) {
+                valores.splice(5, 1, 19)
+            } else
+            if (dano == 108) {
+                valores.splice(5, 1, 20)
+            }
+        }
 
 
-        <div id="span">
-            <div id="conteudo">
-                <text>Usuario</text><br>
-                <input type="text" id="User"><br>
-                <text>Senha</text><br>
-                <input type="password" id="Psswd"><br>
-                <button id="btnRgtr" onclick="Register()">Novo</button>
-                <button onclick="Login()">Entrar</button>
-            </div>
-        </div>
+        function calcND() {
+            let nome = document.getElementById('c1').value;
+            let divdir = document.getElementById('b1').value;
 
+            calcDef()
+            calcRd()
+            calcPV()
+            calcAtk()
+            calcCd()
+            calcDano()
 
-    </div>
-    <script src="script.js"></script>
+            var _ND_ = valores[0] + valores[1] + valores[2] + valores[3] 
+            + valores[4] + valores[5]
+
+            let res = document.createElement('p')
+            document.getElementById('resultados').appendChild(res);
+            res.textContent = nome + " Tem: Def " + valores[0] + " + Rd " 
+            + valores[1] + " + PV " + valores[2] + " + Atk " + valores[3]
+            + " + CD " + valores[4] + " + Dano " + valores[5] + " / " + divdir;
+
+            let res_ = document.createElement('text')
+            document.getElementById('resultados').appendChild(res_);
+            res_.textContent = nome + " ND" + Math.floor(_ND_ / divdir)
+        }
+    </script>
 </body>
 </html>
-<!-- 
-.
-.                     __
-.                    /  \
-.                    \__/
-.                     ||
-.                     ||
-.                     ||
-.                 ||||||||||
-.                |||||PK|||||    
-.               ///        \\\
-.              ///          \\\
-.             ///            \\\
-.            ///    _    _    \\\
-.           ///    |_|  |_|    \\\
-.      _   |||                  |||    _
-.     |_|   \\\     ______      ///   |_|
-.      \\    \\\   |______|    ///    //
-.       \\    |||             |||    //
-.       /_\   |||||||||||||||||||   /_\
-.      // \\  |||             |||  // \\
-.     //   \\ |||     /\      ||| //   \\
-.    //     \\|||    /  \     |||//     \\
-.    ||      \|||\   \  /    /|||/       ||
-.    /\       |||\\   \/    //|||        /\
-.    \/       |||\\\       ///|||        \/
-.             |||\\\\     ////|||
-.             |||\\\\\   /////|||
-.             ||| \\\\\_///// |||
-.            ///   \\\\|////   \\\
-.           ///     |||||||     \\\
-.          |||||||||||||||||||||||||
-.          |||||||||||||||||||||||||   
-.
- -->
